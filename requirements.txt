@@ -1,0 +1,4 @@
+opencv-python-headless==4.5.3.56
+numpy==1.19.5
+Pillow==8.0.1
+pytest-shutil==1.7.0

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TP ACP</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.css">
+    <link href="css/main.css" rel="stylesheet" media="all">
+	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+</head>
+<body class="is-boxed has-animations">
+    <div class="body-wrap">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+							<a href="#">
+								<img class="header-logo-image" src="dist/images/logo.svg" alt="Logo">
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+						<div class="hero-copy">
+	                        <h1 class="hero-title mt-0">TP ANAD : Compression des images en utilisant l'ACP </h1>
+	                        <p class="hero-paragraph">Réalisé par : Lamdani Wilem & Belkessa Linda (2CS SIQ3)</p>
+	                        <a class="button" href="#features">Configuration</a></div>
+						</div>
+						<div class="hero-figure anime-element">
+							<svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
+								<rect width="528" height="396" style="fill:transparent;" />
+							</svg>
+							<div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+							<div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+							<div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
+							<div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+							<div class="hero-figure-box hero-figure-box-05"></div>
+							<div class="hero-figure-box hero-figure-box-06"></div>
+							<div class="hero-figure-box hero-figure-box-07"></div>
+							<div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+							<div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+							<div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+						</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="features" class="features section">
+                <div class="container">
+					<div class="wrapper wrapper--w790">
+                        <div class="card card-5">
+                            <div class="card-heading">
+                                <h2 class="title">Configuration des paramètres</h2>
+                            </div>
+                            <div class="card-body">
+                                <form action="/" method="POST" >
+                                    
+                                    <div class="form-row">
+                                        <div class="name">Nombre d'axes (CP)</div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                <input class="input--style-5" type="number" min="1" max="784" name="axes" id="axesID" value="value">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="name">Rajouter bruit </div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                <input class="input--style-5" type="checkbox" name="bruit" id="bruitID" value="y">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="name">Chiffre à utiliser</div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                <input class="input--style-5" type="number" min="0" max="9" name="number" id="numberID" value="value">
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div>
+                                        <button class="btn btn--radius-2 btn--red" type="submit" onclick="return validate(this);">Valider</button>
+                                    </div>
+
+                                   
+
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section  class="pricing section">
+                <div class="container-sm">
+                    <div class="pricing-inner section-inner">
+                        <div class="pricing-header text-center">
+                            <h2 class="section-title mt-0">Compression ...</h2>
+                            <p class="section-paragraph mb-0">La compression se fera selon les paramètres de configuration.</p>
+                            <div id="comp" class="pricing-tables-wrap">
+                                <div class="pricing-table">
+                                    <div class="pricing-table-inner is-revealing">
+                                        <div class="pricing-table-main">
+                                            <div class="pricing-table-header pb-24">
+                                                <div class="pricing-table-price"><span class="pricing-table-price-currency h2"></span><span class="pricing-table-price-amount h1">Paramètres</span><span class="text-xs"></span></div>
+                                            </div>
+                                            <ul class="pricing-table-features list-reset text-xs">
+                                                <li>
+                                                    <span id="nb_axes"></span>
+                                                </li>
+                                                <li>
+                                                    <span id="bruit"></span>
+                                                </li>
+                                                <li>
+                                                    <span id="chiffre"></span>
+                                                </li>
+                                                
+                                            </ul>
+                                            
+                                            <a class="button button-primary button-shadow button-block" onclick="return validate2();" href="./index.html#imagez">Compression</a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+						
+                        </div>
+                    </div>
+                    <div id="imagez" class="container">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/1.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/1.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/2.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/2.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/3.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/3.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/4.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/4.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/5.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/5.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/6.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/6.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/7.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/7.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/8.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/8.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/9.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/9.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/10.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/10.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/11.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/11.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        <img src="../result/12.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                      <div class="flip-card-back">
+                                        <img src="../original/12.jpg" alt="Avatar" style="width:300px;height:100%;">
+                                      </div>
+                                    </div>
+                                  </div> 
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+
+           
+        </main>
+
+        
+    </div>
+
+    <script src="dist/js/main.min.js"></script>
+    <script src="./logic.js"></script>
+</body>
+</html>
